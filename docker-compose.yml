@@ -1,0 +1,9 @@
+version: '2'
+services:
+  dokuwiki:
+    build: .
+    image: shuosc/dokuwiki:latest
+    ports:
+      - 8004:80
+    volumes:
+      - /home/zhonger/Downloads/dokuwiki:/var/www/html

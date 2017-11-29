@@ -1,0 +1,34 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+
+    index doku.php;
+
+    server_name _;
+
+    client_max_body_size 10M;
+    client_body_buffer_size 128k;
+
+    location ~ /(data/|conf/|bin/|inc/|install.php) { deny all; }
+
+    location / { try_files $uri $uri/ @dokuwiki; }
+
+    location @dokuwiki {
+        # rewrites "doku.php/" out of the URLs if you set the userewrite setting to .htaccess in dokuwiki config page
+        rewrite ^/_media/(.*) /lib/exe/fetch.php?media=$1 last;
+        rewrite ^/_detail/(.*) /lib/exe/detail.php?media=$1 last;
+        rewrite ^/_export/([^/]+)/(.*) /doku.php?do=export_$1&id=$2 last;
+        rewrite ^/(.*) /doku.php?id=$1&$args last;
+    }
+
+    location ~ \.php$ {
+        try_files $uri $uri/ /doku.php;
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+}
