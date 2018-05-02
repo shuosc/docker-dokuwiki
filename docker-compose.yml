@@ -8,5 +8,5 @@ services:
     environment:
       - DIR=wiki
     volumes:
-      - ../wiki/:/opt/data
+      - ./.data:/opt/data
     
