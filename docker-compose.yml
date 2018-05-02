@@ -5,5 +5,8 @@ services:
     image: shuosc/dokuwiki:latest
     ports:
       - 8004:80
+    environment:
+      - DIR=wiki
     volumes:
-      - /home/zhonger/Downloads/dokuwiki:/var/www/html
+      - ../wiki/:/opt/data
+    
