@@ -35,7 +35,7 @@ ENV DIR=wiki
 RUN mkdir -p /opt /var/www/html/$DIR  && cd /opt && \
 	mkdir -p /opt/data/data /opt/data/conf /opt/data/lib && \
     wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && \
-    tar zxf dokuwiki-20180422.tgz && rm -rf dokuwiki-20180422.tgz && \
+    tar zxf dokuwiki-stable.tgz && rm -rf dokuwiki-stable.tgz && \
     rm -rf /var/www/html/index.nginx-debian.html && \
     chown -R www-data:www-data /opt/dokuwiki && \
     cp -R /opt/dokuwiki/* /var/www/html/$DIR
