@@ -1,10 +1,17 @@
 # Dokuwiki Dockerlize
 
+## How to get it
+
+- One way is `docker pull shuosc/dokuwiki` from Docker Hub in US.
+- Another ways is `docker pull r.daocloud.io/zhonger/dokuwiki` from Daocloud in China.
+- The third ways is `docker build . -t shuosc/dokuwiki` from `Dockerfile`.
+
 ## Features
 
 - China Ubuntu Sources mirror
 - Multilevel
 - Supervisor
+- Subdirectory (2018.05.02 add)
 
 ## Description
 
@@ -14,6 +21,12 @@
 
 ## Usage
 
-- change the volumes in the docker-compose.yml
+- change the volumes in the `docker-compose.yml`
 - `sudo docker-compose up -d`
-- browser `http://127.0.0.1:8004`
+- browser `http://127.0.0.1:8004/wiki`
+
+## Tips
+
+- The subdirectory can be set in `docker-compose.yml`, and `/wiki` is the default.
+- The dokuwiki version can be upgrade to the latter stable if you build the images from `Dockerfile`.
+- `v1 version` is incomplete because it don't include the dokuwiki source code. In other words, it is just a run enviroment. As `v2 version`, it including all the need, and it cloud be used as long as you pull the latest image from [Docker Hub](https://hub.docker.com/r/shuosc/dokuwiki).
