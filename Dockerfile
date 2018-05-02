@@ -34,7 +34,7 @@ ENV DIR=wiki
 #下载dokuwiki最新源码
 RUN mkdir -p /opt /var/www/html/$DIR  && cd /opt && \
 	mkdir -p /opt/data/data /opt/data/conf /opt/data/lib && \
-    wget https://ftp.dlcloud.info/linuxsoftware/dokuwiki-20180422.tgz && \
+    wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && \
     tar zxf dokuwiki-20180422.tgz && rm -rf dokuwiki-20180422.tgz && \
     rm -rf /var/www/html/index.nginx-debian.html && \
     chown -R www-data:www-data /opt/dokuwiki && \
