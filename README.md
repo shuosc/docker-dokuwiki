@@ -3,8 +3,8 @@
 ## How to get it
 
 - One way is `docker pull shuosc/dokuwiki` from Docker Hub in US.
-- Another ways is `docker pull r.daocloud.io/zhonger/dokuwiki` from Daocloud in China.
-- The third ways is `docker build . -t shuosc/dokuwiki` from `Dockerfile`.
+- Another way is `docker pull daocloud.io/zhonger/dokuwiki` from Daocloud in China.
+- The third way is `docker build . -t shuosc/dokuwiki` from `Dockerfile`.
 
 ## Features
 
