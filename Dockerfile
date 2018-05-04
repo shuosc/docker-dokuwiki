@@ -32,11 +32,10 @@ RUN mkdir -p /var/run/php
 ENV DIR=wiki
 
 #下载dokuwiki最新源码
-RUN mkdir -p /opt /var/www/html/$DIR  && cd /opt && \
+RUN mkdir -p /opt /var/www/html/$DIR  && \
 	mkdir -p /opt/data/data /opt/data/conf /opt/data/lib && \
-    wget https://codeload.github.com/splitbrain/dokuwiki/zip/master -O dokuwiki.zip&& \
-    unzip dokuwiki.zip && rm -rf dokuwiki.zip && \
-    mv dokuwiki-master dokuwiki && \
+    cd /opt && wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz && \
+    tar zxf dokuwiki-statble.tgz && rm -rf dokuwiki-stable.tgz && \
     rm -rf /var/www/html/index.nginx-debian.html && \
     chown -R www-data:www-data /opt/dokuwiki && \
     cp -R /opt/dokuwiki/* /var/www/html/$DIR
