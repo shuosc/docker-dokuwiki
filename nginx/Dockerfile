@@ -1,8 +1,8 @@
 FROM shuosc/ubuntu
 
-MAINTAINER zhonger <zhonger@live.cn>
+LABEL maintainer "zhonger <zhonger@live.cn>"
 
-RUN echo y | apt-get install nginx
+RUN apt-get install -y nginx
 
 EXPOSE 80
 

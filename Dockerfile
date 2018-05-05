@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-MAINTAINER zhonger <zhonger@live.cn>
+LABEL maintainer "zhonger <zhonger@live.cn>"
 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
