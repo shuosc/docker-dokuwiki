@@ -2,7 +2,9 @@ FROM ubuntu:16.04
 
 LABEL maintainer "zhonger <zhonger@live.cn>"
 
-RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN apt-get update && \
+    apt-get install -y apt-transport-https && \
+    mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update
 
