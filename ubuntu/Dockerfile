@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 LABEL maintainer "zhonger <zhonger@live.cn>"
 
 RUN apt-get update && \
-    apt-get install -y apt-transport-https && \
+    apt-get install -y apt-transport-https ca-certificates && \
     mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY sources.list /etc/apt/sources.list
 RUN apt-get update
