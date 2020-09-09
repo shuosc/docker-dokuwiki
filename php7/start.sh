@@ -1,3 +1,3 @@
-/etc/init.d/php7.0-fpm restart
+/etc/init.d/php7.2-fpm restart
 service nginx start
 top

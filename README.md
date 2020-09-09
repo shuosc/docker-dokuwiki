@@ -24,6 +24,7 @@
 - change the volumes in the `docker-compose.yml`
 - `sudo docker-compose up -d`
 - browser `http://127.0.0.1:8004/wiki`
+- default admin username & password are both `admin`.
 
 ## Tips
 

@@ -9,4 +9,4 @@
 # login:passwordhash:Real Name:email:groups,comma,separated
 
 
-admin:$1$CgJexIms$QqyaR9vF3s754q02WR24L/:admin:admin@t.cn:admin,user
+admin:$apr1$oat4nc1s$plTdulpi4BfwbjPiKX5L2/:admin:admin@t.cn:admin,user
