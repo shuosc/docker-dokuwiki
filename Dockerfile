@@ -12,9 +12,9 @@ EXPOSE 80
 
 #安装php7和dokuwiki
 RUN apt-get install -y libnss3-tools jq xsel && \
-    apt-get install -y php7.2-cli php7.2-common php7.2-curl php7.2-json php7.2-mbstring php7.2-opcache && \
-    apt-get install -y php7.2-readline php7.2-xml php7.2-zip php7.2-sqlite3 php7.2-mysql php7.2-pgsql && \
-    apt-get install -y php7.2 php7.2-fpm && mkdir -p /var/run/php
+    apt-get install -y php7.4-cli php7.4-common php7.4-curl php7.4-json php7.4-mbstring php7.4-opcache && \
+    apt-get install -y php7.4-readline php7.4-xml php7.4-zip php7.4-sqlite3 php7.4-mysql php7.4-pgsql && \
+    apt-get install -y php7.4 php7.4-fpm && mkdir -p /var/run/php
 
 #二级目录名称
 ENV DIR=wiki

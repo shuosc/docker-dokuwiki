@@ -31,3 +31,7 @@
 - The subdirectory can be set in `docker-compose.yml`, and `/wiki` is the default.
 - The dokuwiki version can be upgrade to the latter stable if you build the images from `Dockerfile`.
 - `v1 version` is incomplete because it don't include the dokuwiki source code. In other words, it is just a run enviroment. As `v2 version`, it including all the need, and it cloud be used as long as you pull the latest image from [Docker Hub](https://hub.docker.com/r/shuosc/dokuwiki).
+
+## ChangeLogs
+
+- 2021/4/24  Upgrade the base image to Ubuntu Focal (20.04) & the PHP version to 7.4. Add vendor directory deny rules.
