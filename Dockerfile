@@ -7,7 +7,7 @@ RUN apt-get install -y vim wget tar unzip \
     && apt-get upgrade -y
 
 #安装nginx
-RUN apt-get install -y nginx
+RUN apt-get update && apt-get install -y nginx
 EXPOSE 80
 
 #安装php7和dokuwiki
