@@ -1,12 +1,12 @@
-version: '2'
+version: '3'
 services:
   dokuwiki:
     build: .
-    image: shuosc/dokuwiki:latest
+    image: shuosc/dokuwiki:arm
     ports:
-      - 8004:80
-    environment:
-      - DIR=wiki
+      - 8081:80
+    # environment:
+    #   - DIR=wiki
     volumes:
-      - ./.data:/opt/data
-    
+      - ./data:/opt/data
+      - ./log:/var/log/apache2
