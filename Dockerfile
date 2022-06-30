@@ -12,6 +12,7 @@ RUN apt-get update \
 
 # Install php extensions & Enable rewrite mod
 RUN apt-get install libldap-dev -y \
+    && && ln -s /usr/lib/i386-linux-gnu/libldap.so /usr/lib/libldap.so \
     && docker-php-ext-install ldap \
     && a2enmod rewrite remoteip\
     && apt-get clean \ 

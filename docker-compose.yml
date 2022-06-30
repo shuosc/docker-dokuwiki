@@ -1,8 +1,7 @@
 version: '3'
 services:
   dokuwiki:
-    build: .
-    image: shuosc/dokuwiki:arm
+    image: shuosc/dokuwiki:latest
     ports:
       - 8081:80
     # environment:
