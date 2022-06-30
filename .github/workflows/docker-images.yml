@@ -8,7 +8,7 @@ name: ci
 on:
   push:
     tags:
-      - *
+      - v*
 
 env:
   APP_NAME: dokuwiki
