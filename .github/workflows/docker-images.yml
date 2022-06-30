@@ -38,8 +38,8 @@ jobs:
         uses: aliyun/acr-login@v1
         with:
           region-id: cn-shanghai
-          access-key-id: ${{ secrets.ACR_KEY_ID }}
-          access-key-secret: ${{ secrets.ACR_KEY_SECRET }}
+          username: ${{ secrets.ACE_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
       - 
         name: Generate App Version
         run: echo APP_VERSION=`git describe --tags --always` >> $GITHUB_ENV
