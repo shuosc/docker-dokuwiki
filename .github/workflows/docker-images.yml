@@ -52,3 +52,18 @@ jobs:
           tags: |
             ${{ env.DOCKERHUB_REPO }}:latest
             ${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+      -
+        name: Login to Alibaba Cloud Container Registry (ACR)
+        uses: aliyun/acr-login@v1
+        with:
+          region-id: cn-shanghai
+          username: ${{ secrets.ACE_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+      - # copy multiplatform image from dockerhub to acr
+        name: Push Image to multiple registries
+        uses: akhilerm/tag-push-action@v2.0.0
+        with:
+          src: docker.io/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+          dst: |
+            registry.cn-shenzhen.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:latest
+            registry.cn-shenzhen.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
