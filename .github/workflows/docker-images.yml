@@ -65,5 +65,5 @@ jobs:
         with:
           src: docker.io/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
           dst: |
-            registry.cn-shenzhen.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:latest
-            registry.cn-shenzhen.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            registry.cn-shanghai.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:latest
+            registry.cn-shanghai.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
