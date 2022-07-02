@@ -3,7 +3,7 @@ FROM php:7.4-apache
 LABEL maintainer "zhonger <zhonger@live.cn>"
 
 # Environments
-ENV VERSION rc
+ENV VERSION stable
 
 # Install necessary softwares
 RUN apt-get update \
