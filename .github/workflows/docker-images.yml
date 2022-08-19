@@ -35,6 +35,13 @@ jobs:
           registry: registry.cn-shanghai.aliyuncs.com
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+      -
+        name: Login to Quay.io
+        uses: docker/login-action@v2
+        with:
+          registry: quay.io
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_TOKEN }} 
       - 
         name: Generate App Version
         run: echo APP_VERSION=`git describe --tags --always` >> $GITHUB_ENV
@@ -57,7 +64,12 @@ jobs:
             APP_NAME=${{ env.APP_NAME }}
             APP_VERSION=${{ env.APP_VERSION }}
           tags: |
+            ${{ env.DOCKERHUB_REPO }}:latest
             ${{ env.DOCKERHUB_REPO }}:stable
             ${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            quay.io/${{ env.DOCKERHUB_REPO }}:latest
+            quay.io/${{ env.DOCKERHUB_REPO }}:stable
+            quay.io/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
+            registry.cn-shanghai.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:latest
             registry.cn-shanghai.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:stable
             registry.cn-shanghai.aliyuncs.com/${{ env.DOCKERHUB_REPO }}:${{ env.APP_VERSION }}
