@@ -3,9 +3,6 @@
 if [ $DIR ]; then
   echo "Exist DIR environment variable."
   DIR_HOME=/var/www/html/$DIR
-  DIR_DATA=/var/www/html/$DIR/data
-  DIR_CONF=/var/www/html/$DIR/conf
-  DIR_LIB=/var/www/html/$DIR/lib
   tee /var/www/html/.htaccess << EOF
 RewriteEngine on
 RewriteCond %{REQUEST_URI} ^/$
@@ -14,11 +11,13 @@ EOF
 else
   echo "No DIR environment variable."
   DIR_HOME=/var/www/html
-  DIR_DATA=/var/www/html/data
-  DIR_CONF=/var/www/html/conf
-  DIR_LIB=/var/www/html/lib
+  
   rm -rf /var/www/html
 fi
+
+DIR_DATA=$DIR_HOME/data
+DIR_CONF=$DIR_HOME/conf
+DIR_LIB=$DIR_HOME/lib
 
 cp -R /opt/dokuwiki $DIR_HOME
 
@@ -32,20 +31,21 @@ if [ "`ls -A /opt/data/conf`" = "" ]; then
   cp -R /opt/dokuwiki/lib/images /opt/data/lib/images
   cp -R /opt/dokuwiki/lib/plugins /opt/data/lib/plugins
   cp -R /opt/dokuwiki/lib/tpl /opt/data/lib/tpl
+else
+  echo "Dokuwiki has been installed."
 fi
 
-rm -rf $DIR_HOME/install.php $DIR_DATA $DIR_CONF $DIR_LIB/images $DIR/plugins $DIR/tpl 
+rm -rf $DIR_HOME/install.php \
+       $DIR_DATA $DIR_CONF \
+       $DIR_LIB/images $DIR_LIB/plugins $DIR_LIB/tpl
 ln -s /opt/data/conf $DIR_CONF
 ln -s /opt/data/data $DIR_DATA
 ln -s /opt/data/lib/images $DIR_LIB/images
 ln -s /opt/data/lib/plugins $DIR_LIB/plugins
 ln -s /opt/data/lib/tpl $DIR_LIB/tpl
 
-echo "Dokuwiki has been installed."
-
 chown -R www-data:www-data /var/www/html
 chown -R www-data:www-data /opt/data
-chown -R www-data:www-data /opt/conf
 
 echo "The dokuwiki site is live."
 

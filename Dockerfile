@@ -1,9 +1,9 @@
 FROM php:7.4-apache
 
-LABEL maintainer "zhonger <zhonger@live.cn>"
+LABEL maintainer="zhonger <zhonger@live.cn>"
 
 # Environments
-ENV VERSION stable
+ENV VERSION="stable"
 
 # Install necessary softwares
 RUN apt-get update \

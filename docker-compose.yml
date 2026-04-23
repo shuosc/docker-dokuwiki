@@ -1,4 +1,3 @@
-version: '3'
 services:
   dokuwiki:
     image: shuosc/dokuwiki:latest
